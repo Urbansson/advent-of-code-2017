@@ -22,10 +22,9 @@ object CaptchaBreaker{
   def solve(input: String, offset: Int = 1): Int ={
     val length = input.length
     val index = input.zipWithIndex
-    input
-      .zipWithIndex
+    index
       .filter(i => i._1 == index((offset + i._2) % length)._1)
-      .map(_._1.toInt - 48)
+      .map(_._1.asDigit)
       .sum
   }
 
